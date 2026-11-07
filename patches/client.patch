@@ -1,0 +1,37 @@
+--- net/minecraft/src/World.java
++++ net/minecraft/src/World.java
+@@ -72,6 +72,9 @@
+ 	}
+ 
+ 	public World(ISaveHandler var1, String var2, WorldProvider var3, WorldSettings var4) {
++
++		System.out.println("chud1");
++
+ 		this.scheduledUpdatesAreImmediate = false;
+ 		this.loadedEntityList = new ArrayList();
+ 		this.unloadedEntityList = new ArrayList();
+@@ -115,6 +118,9 @@
+ 	}
+ 
+ 	public World(World var1, WorldProvider var2) {
++
++		System.out.println("chud2");
++
+ 		this.scheduledUpdatesAreImmediate = false;
+ 		this.loadedEntityList = new ArrayList();
+ 		this.unloadedEntityList = new ArrayList();
+@@ -160,9 +166,14 @@
+ 
+ 	public World(ISaveHandler var1, String var2, WorldSettings var3) {
+ 		this(var1, var2, (WorldSettings)var3, (WorldProvider)null);
++
++		System.out.println("chud3");
+ 	}
+ 
+ 	public World(ISaveHandler var1, String var2, WorldSettings var3, WorldProvider var4) {
++
++		System.out.println("chud4");
++
+ 		this.scheduledUpdatesAreImmediate = false;
+ 		this.loadedEntityList = new ArrayList();
+ 		this.unloadedEntityList = new ArrayList();
