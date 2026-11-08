@@ -530,6 +530,10 @@ public class Block {
 	}
 
 	public void onBlockPlaced(World var1, int var2, int var3, int var4, int var5) {
+		// speedrunigtathome
+		InGameTimer timer = InGameTimer.getInstance();
+		timer.processBlockPlaced(this.blockID);
+		// speedrunigtathome
 	}
 
 	public void onBlockClicked(World var1, int var2, int var3, int var4, EntityPlayer var5) {

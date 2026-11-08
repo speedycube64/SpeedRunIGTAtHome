@@ -235,11 +235,18 @@ public class World implements IBlockAccess {
 		String worldName = this.saveHandler.getSaveDirectoryName();
 		File levelFile = this.saveHandler.getMapFileFromName(worldName);
 		String worldDirectory = levelFile.getParentFile().getParentFile().toString();
-		System.out.println(String.format("[SpeedRunIGT At Home] World opened: %s", worldDirectory));
 
 		// then pass its directory to load the time from ticks.txt
 		InGameTimer timer = InGameTimer.getInstance();
-		timer.loadTimeFromWorldFile(worldDirectory);
+		timer.loadDataFromWorldFile(worldDirectory);
+
+		// similarly get the game directory and load the stopping block ID
+		String gameDirectory = levelFile.getParentFile().getParentFile()
+										.getParentFile().getParentFile().toString();
+		timer.loadStoppingBlockID(gameDirectory);
+
+		// also start the timer
+		timer.startTimer();
 
 		// speedrunigtathome
 	}
@@ -373,7 +380,7 @@ public class World implements IBlockAccess {
 
 		// then save tick count to file
 		InGameTimer timer = InGameTimer.getInstance();
-		timer.saveTimeToWorldFile(worldDirectory);
+		timer.saveDataToWorldFile(worldDirectory);
 
 		// speedrunigtathome
 	}
